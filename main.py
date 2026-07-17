@@ -33,5 +33,16 @@ try:
             if userConfirm == 0:
                 print("Your details are Confirmed")
                 break
+        if students.get("stdId") == stdId and students.get("stdName")== stdName and students.get('StdAge')==stdAge and students.get("stdMarks")==stdMarks:
+            print("You're record is already existed !")
+        else:
+            print("We found that you're not registered, we are creating your account :)")
+            students["stdId"] = stdId
+            students["stdName"] = stdName
+            students["stdAge"] = stdAge
+            students["stdMarks"] = stdMarks
+            print("we created your account")
+            print(students)
+            
 except:
     print("Please enter number from given index !")
