@@ -34,6 +34,13 @@ def search_student(stdId):
     else:
         print("Your account not found")
 
+def update_student(stdId,stdName,stdAge,stdMarks):
+    if stdId in students:
+        students[stdId]["name"] = stdName
+        students[stdId]["age"] = stdAge
+        students[stdId]["marks"] = stdMarks
+        print('Your account details are updated')
+
 def add_student(stdId,stdName,stdAge,stdMarks):
     # while True:
         print("Confirm your details")
