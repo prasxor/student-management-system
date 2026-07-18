@@ -1,10 +1,11 @@
 from packages.Packages import *
 import os
 
-display_option()
+# display_option()
 
 while True:
     # try:
+        display_option()
         userChoice = int(input("Enter your choice : "))
 
         if userChoice == 1:
@@ -43,10 +44,27 @@ while True:
                 print("Please enter Y or N")
         elif userChoice == 6:
             os.chdir(r'/Users/prasxor/Developer/Projects/student-management-system/File Result')
-            with open('result.txt','a') as file_result:
-                file_result.writelines(str(students[stdId])+"\n")
-                print("file saved successfully")
-            # print(os.listdir())
+            stdId = int(input("Enter your student ID: "))
+            if stdId in students[stdId]:
+                with open(f'{students[stdId]}.txt','a') as file_result:
+                    file_result.writelines(str(students[stdId])+"\n")
+                    print("file saved successfully")
+            else:
+                print("record not found")
+                # print(os.listdir())
+        elif userChoice == 7:
+            stdId = int(input("Enter your student ID: "))
+            if stdId in students[stdId]:
+                with open(f'{students[stdId]}.txt','r') as file_result:
+                    file_result.read()
+                    print("file saved successfully")
+            else:
+                print("record not found")
+        elif userChoice == 8:
+            break
+        else:
+            print("Enter a valid choice")
+
 
     # except:
     #     print("Please enter number from given index !")

@@ -60,4 +60,4 @@ def add_student(stdId,stdName,stdAge,stdMarks):
             }
             print("we created your account")
             print(students)
-            display_option()
+            # display_option()
