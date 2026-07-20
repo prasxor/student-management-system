@@ -1,11 +1,23 @@
 students = dict()
 
 class Student:
-    def __init__(self,stdId,name,age,marks):
+    def __init__(self,std_id,name,age,marks, mobile):
         self.name = name
         self.age = age
         self.marks = marks
-        self.stdId = stdId
+        self.stdId = std_id
+        self.mobile = self.validate_mobile(mobile)
+
+    course = ["python full stack", "java full stack", "software testing"]
+    institute = "qspider"
+
+    @staticmethod
+    def validate_mobile(self):
+        if len(self.mobile) == 10 and self.mobile[0] in ['9','8','7','6'] and self.mobile.isdigit():
+            return self.mobile
+        else:
+            return "Please enter a valid mobile number"
+
 
 
 def display_option():
@@ -41,23 +53,38 @@ def update_student(stdId,stdName,stdAge,stdMarks):
         students[stdId]["marks"] = stdMarks
         print('Your account details are updated')
 
-def add_student(stdId,stdName,stdAge,stdMarks):
+def add_student(std_data):
     # while True:
         print("Confirm your details")
         print(f'''
-            Student Id : {stdId}
-            Student Name : {stdName}
-            Student Age : {stdAge}
-            Student Marks : {stdMarks}''')
-        if stdId in students:
+            Student Id : {std_data[0]}
+            Student Name : {std_data[1]}
+            Student Age : {std_data[2]}
+            Student Marks : {std_data[3]}
+            Student mobile no. : {std_data[4]}''')
+        if std_data[1] in students:
             print("You're record is already existed !")
         else:
             print("We found that you're not registered, we are creating your account :)")
-            students[stdId] = {
-                "name": stdName,
-                "age": stdAge,
-                "marks": stdMarks
+            students[std_data[0]] = {
+                "name": std_data[1],
+                "age": std_data[2],
+                "marks": std_data[3],
+                "mobile no": std_data[4]
             }
             print("we created your account")
             print(students)
             # display_option()
+
+def std_input():
+    stdId = int(input("Enter your student ID: "))
+    try:
+        stdName = str(input("Enter your Name: "))
+    except:
+        print("please enter the valid name !")
+    stdAge = int(input("Enter your Age: "))
+    stdMarks = int(input("Enter your Marks: "))
+    stdmobile = input("Enter your mobile number: ")
+
+    res :list =[stdId,stdName,stdAge,stdMarks,stdmobile]
+    return res

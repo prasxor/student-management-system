@@ -9,13 +9,8 @@ while True:
         userChoice = int(input("Enter your choice : "))
 
         if userChoice == 1:
-
-            stdId = int(input("Enter your student ID: "))
-            # print("Enter your student Id in INT (Number)")
-            stdName = str(input("Enter your Name: "))
-            stdAge = int(input("Enter your Age: "))
-            stdMarks = int(input("Enter your Marks: "))
-            add_student(stdId,stdName,stdAge,stdMarks)
+            std_data = std_input()
+            add_student(std_data)
         elif userChoice == 2:
             view_student()
         elif userChoice == 3:
@@ -45,13 +40,13 @@ while True:
         elif userChoice == 6:
             os.chdir(r'/Users/prasxor/Developer/Projects/student-management-system/File Result')
             stdId = int(input("Enter your student ID: "))
-            if stdId in students[stdId]:
+            if stdId in students:
                 with open(f'{students[stdId]}.txt','a') as file_result:
                     file_result.writelines(str(students[stdId])+"\n")
                     print("file saved successfully")
             else:
                 print("record not found")
-                # print(os.listdir())
+                # print(os.listdir())1
         elif userChoice == 7:
             stdId = int(input("Enter your student ID: "))
             if stdId in students[stdId]:
