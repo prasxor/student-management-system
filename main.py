@@ -1,22 +1,34 @@
 from packages.Packages import *
 import os
 
+from packages.Packages import Student
+
 # display_option()
 
 while True:
     # try:
-        display_option()
+        main_menu()
         userChoice = int(input("Enter your choice : "))
-
         if userChoice == 1:
-            std_data = std_input()
-            add_student(std_data)
+            # std_data = std_input()
+            stdname = str(input("Enter your Name: "))
+            stdAge = int(input("Enter your Age: "))
+            stdgender = str(input("Enter your gender: "))
+            stdmobile = input("Enter your mobile number: ")
+            stdemail = input("Enter your email : ")
+            stdCourse = input("Enter your course: ")
+            stdMarks = int(input("Enter your Marks: "))
+            student = Student(stdname,stdAge,stdgender,stdmobile,stdemail,stdCourse,stdMarks)
+            print(f"student created sucessfully. ID : {student.stdId}")
+            # add_student(std_data)
         elif userChoice == 2:
-            view_student()
+            for student_list in students.values():
+                for student in student_list:
+                    view_all_students(student)
         elif userChoice == 3:
             print("Enter your details to get your record")
-            chckId = int(input("Enter your student ID: "))
-            search_student(chckId)
+            chckId = input("Enter your student ID: ")
+            search_student(chckId.lower())
         elif userChoice == 4:
             # try:
             stdId = int(input("Enter your student ID: "))

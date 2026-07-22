@@ -10,7 +10,7 @@ class Student:
     total_students_view = 0
 
     def __init__(self,name,age,gender, mobile, email,course,marks):
-        self.stdId = "ADC" + str(self.increment_student())
+        self.stdId = "adc" + str(self.increment_student())
         self.name = name
         self.age = age
         self.gender = gender
@@ -58,16 +58,35 @@ class Student:
         return marks
 
     # @staticmethod
-    def view_student(self):
-        for std in students[self]:
-            print("---------------------------------------------------")
-            print(
-                f"customer id : {std.acc_no}\nstd name : {std.c_name}\nstd age : {std.c_age}\nstd bank : {self.bank_name}\nbank manager : {std.manager_name}")
-            print("---------------------------------------------------")
+
 
 
 
 # modules
+
+
+def main_menu():
+    print('''
+    -------------------------------------------------
+    |        Display Menu                           |
+    -------------------------------------------------
+    | ========= STUDENT RECORD SYSTEM ==============|
+    |                                               |      
+    |            1. Add Student                     |
+    |            2. View All Students               |
+    |            3. Search Student                  |
+    |            4. Update Student                  |
+    |            5. Delete Student                  |
+    |            6. Show Passed Students            |
+    |            7. Show Failed Students            |
+    |            8. Show Topper                     |
+    |            9. Average Marks                   |
+    |            10. Save Data                      |
+    |            11. Load Data                      |
+    |            12. Exit                           |
+    |-----------------------------------------------|
+    ''')
+
 
 def add_student(std_data):
     # while True:
@@ -96,47 +115,22 @@ def add_student(std_data):
                 "marks": std_data[7],
             }
             print("we created your account")
-            # print(f'''
-            #             Student Id : {students[0][0]}
-            #             Student Name : {students[0][1]}
-            #             Student Age : {students[0][2]}
-            #             Student gender : {students[0][3]}
-            #             Student mobile no. : {students[0][4]}
-            #             Student email : {students[0][5]}
-            #             Student course : {students[0][6]}
-            #             Student Marks : {students[0][7]}
-            #             ''')
             print(students)
-            # display_option()
 
-def main_menu():
-    print('''
-    -------------------------------------------------
-    |        Display Menu                           |
-    -------------------------------------------------
-    | ========= STUDENT RECORD SYSTEM ==============|
-    |                                               |      
-    |            1. Add Student                     |
-    |            2. View All Students               |
-    |            3. Search Student                  |
-    |            4. Update Student                  |
-    |            5. Delete Student                  |
-    |            6. Show Passed Students            |
-    |            7. Show Failed Students            |
-    |            8. Show Topper                     |
-    |            9. Average Marks                   |
-    |            10. Save Data                      |
-    |            11. Load Data                      |
-    |            12. Exit                           |
-    |-----------------------------------------------|
-    ''')
+def view_all_students(self):
+    for std in students[self.stdId]:
+        print("---------------------------------------------------")
+        print(f'''student Id   : {std.stdId}\nstudent name : {std.name}\nstudent age  : {std.age}\nstudent gender : {std.gender}\nstudent mobile : {std.mobile}\nstudent email : {std.email}\nstudent course : {std.course}\nstudent marks : {std.marks}\ncollege name : {std.college_name}''')
+        print("---------------------------------------------------")
 
 
 
-def search_student(stdId):
-    if stdId in students:
-        print("Your account found")
-        print(students[stdId])
+def search_student(stdid):
+    if stdid in students:
+        # print("Your account found")
+        # print(students[stdid])
+        for student in students[stdid]:
+            Student.display_student(None,student)
     else:
         print("Your account not found")
 
@@ -152,7 +146,7 @@ def update_student(stdId,stdName,stdAge,stdMarks):
 def std_input():
     stdId = int(input("Enter your student ID: "))
     try:
-        stdName = str(input("Enter your Name: "))
+        stdname = str(input("Enter your Name: "))
     except:
         print("please enter the valid name !")
     stdAge = int(input("Enter your Age: "))
@@ -163,5 +157,5 @@ def std_input():
     stdMarks = int(input("Enter your Marks: "))
 
 
-    res :list =[stdId,stdName,stdAge,stdgender,stdmobile,stdemail,stdCourse,stdMarks]
+    res :list =[stdId,stdname,stdAge,stdgender,stdmobile,stdemail,stdCourse,stdMarks]
     return res
