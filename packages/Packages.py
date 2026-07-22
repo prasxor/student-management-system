@@ -80,10 +80,9 @@ def main_menu():
     |            6. Show Passed Students            |
     |            7. Show Failed Students            |
     |            8. Show Topper                     |
-    |            9. Average Marks                   |
-    |            10. Save Data                      |
-    |            11. Load Data                      |
-    |            12. Exit                           |
+    |            9. Save Data                      |
+    |            10. Load Data                      |
+    |            11. Exit                           |
     |-----------------------------------------------|
     ''')
 
@@ -127,20 +126,29 @@ def view_all_students(self):
 
 def search_student(stdid):
     if stdid in students:
-        # print("Your account found")
-        # print(students[stdid])
         for student in students[stdid]:
             Student.display_student(None,student)
     else:
         print("Your account not found")
 
-def update_student(stdId,stdName,stdAge,stdMarks):
-    if stdId in students:
-        students[stdId]["name"] = stdName
-        students[stdId]["age"] = stdAge
-        students[stdId]["marks"] = stdMarks
+def update_student(stdid):
+    if stdid in students:
+        student = students[stdid][0]
+        student.name = str(input("Enter your Name: "))
+        student.age = int(input("Enter your Age: "))
+        student.gender = str(input("Enter your gender: "))
+        student.mobile = Student.validate_mobile(input("Enter your mobile number: "))
+        student.email = input("Enter your email : ")
+        student.marks = int(input("Enter your Marks: "))
         print('Your account details are updated')
+    else:
+        print("Student not found")
 
+def delete_student(stdid):
+    if stdid in students:
+        students.pop(stdid)
+    else:
+        print("Student not found")
 
 
 def std_input():
