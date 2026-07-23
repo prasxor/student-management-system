@@ -44,15 +44,18 @@ while True:
         elif userChoice == 8:
             print(show_topper())
         elif userChoice == 9:
-            os.chdir(r'/Users/prasxor/Developer/Projects/student-management-system/File Result')
-            stdId = int(input("Enter your student ID: "))
-            if stdId in students:
-                with open(f'{students[stdId]}.txt','a') as file_result:
-                    file_result.writelines(str(students[stdId])+"\n")
-                    print("file saved successfully")
-            else:
-                print("record not found")
-                # print(os.listdir())1
+            print("Enter your details to save your record")
+            chckId = input("Enter your student ID: ")
+            print(save_to_file(chckId.lower()))
+
+            # stdId = int(input("Enter your student ID: "))
+            # if stdId in students:
+            #     with open(f'{students[stdId]}.txt','a') as file_result:
+            #         file_result.writelines(str(students[stdId])+"\n")
+            #         print("file saved successfully")
+            # else:
+            #     print("record not found")
+            #     # print(os.listdir())1
         elif userChoice == 10:
             stdId = int(input("Enter your student ID: "))
             if stdId in students[stdId]:

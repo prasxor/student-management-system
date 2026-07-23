@@ -1,5 +1,7 @@
-students = {}
+import os
 
+
+students = {}
 class Student:
     passing_marks = 35
     student_count = 0
@@ -184,3 +186,23 @@ def show_topper():
         if student.marks >= 95:
             student.display_student()
 
+def save_to_file(stdid):
+    os.chdir(r'/Users/prasxor/Developer/Projects/student-management-system/File Result')
+    if stdid in students:
+        student = students[stdid][0]
+        with open(f'{student[stdid]}.txt', 'w') as file_result:
+            file_result.write = f"""
+            Student ID: {student.stdId}
+            Name: {student.name}
+            Age: {student.age}
+            Gender: {student.gender}
+            Mobile: {student.mobile}
+            Email: {student.email}
+            Course: {student.course}
+            Marks: {student.marks}
+            College: {student.college_name}
+            """
+            # file_result.write(data)
+            print("data saved successfully")
+    else:
+        print("your account not found")
