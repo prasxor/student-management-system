@@ -38,9 +38,9 @@ while True:
             chckId = input("Enter your student ID: ")
             delete_student(chckId.lower())
         elif userChoice == 6:
-            print(Student.passed_students)
+            print(show_passed_students())
         elif userChoice == 7:
-            print(Student.failed_students)
+            print(show_failed_students())
         elif userChoice == 9:
             os.chdir(r'/Users/prasxor/Developer/Projects/student-management-system/File Result')
             stdId = int(input("Enter your student ID: "))

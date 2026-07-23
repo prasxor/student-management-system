@@ -80,7 +80,7 @@ def main_menu():
     |            6. Show Passed Students            |
     |            7. Show Failed Students            |
     |            8. Show Topper                     |
-    |            9. Save Data                      |
+    |            9. Save Data                       |
     |            10. Load Data                      |
     |            11. Exit                           |
     |-----------------------------------------------|
@@ -167,3 +167,13 @@ def std_input():
 
     res :list =[stdId,stdname,stdAge,stdgender,stdmobile,stdemail,stdCourse,stdMarks]
     return res
+
+def show_passed_students():
+    print("These students gets passed")
+    for student in Student.passed_students:
+        Student.display_student(None,student)
+
+def show_failed_students():
+    print("These students gets failed")
+    for student in Student.failed_students:
+        Student.display_student(None,student)
