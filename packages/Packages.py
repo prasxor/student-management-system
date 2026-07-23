@@ -177,3 +177,10 @@ def show_failed_students():
     print("These students gets failed")
     for student in Student.failed_students:
         Student.display_student(None,student)
+
+def show_topper():
+    print("These students are topped this year\n")
+    for student in students:
+        if student.marks >= 95:
+            student.display_student()
+
